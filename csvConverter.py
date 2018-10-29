@@ -41,8 +41,8 @@ def modRow(row):
     return row
 
 firstRow = True
-with open("CS_LOAD.csv", newline='') as infile: #opens file
-    with open("Converted_File.csv", 'w', newline='') as outfile: #creates output file 
+with open("CS_LOAD.csv", newline='', encoding='latin1') as infile: #opens file
+    with open("Converted_File.csv", 'w', newline='', encoding='latin1') as outfile: #creates output file 
         inReader = csv.reader(infile) #makes csvreader of file
         outWriter = csv.writer(outfile) #makes writer of outfile
         for row in inReader: #every single row in FakeData1.csv

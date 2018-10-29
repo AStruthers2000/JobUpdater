@@ -30,7 +30,7 @@ def modRow(row):
     now = datetime.datetime.now()
     curDate = now.strftime("%m/%d/%Y")
 
-    howToApply = "This is a CWU On-Campus job. All application for these types of positions must be processed through the CWU HR website. You may apply by using thedirect jobpost link below or by using the general HR link below and searching for this post by title in their system.\nJob Posting Direct Link: " + row[6] + "\nGeneral HR Website: https://careers.cwu.edu"
+    howToApply = "This is a CWU On-Campus job. All application for these types of positions must be processed through the CWU HR website. You may apply by using thedirect jobpost link below or by using the general HR link below and searching for this post by title in their system.\n\nJob Posting Direct Link: " + row[6] + "\n\n\tGeneral HR Website: https://careers.cwu.edu"
 
     typeOfJob = "Student Employment On-Campus Jobs"
     if "work study" in row[1].lower() or "work study" in row[5].lower():

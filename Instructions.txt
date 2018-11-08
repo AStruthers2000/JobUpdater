@@ -1,0 +1,27 @@
+ON WINDOWS:
+1. Drag and drop excel data into this folder and rename it "CS_LOAD.csv". This should replace the current "CS_LOAD.csv" file, which is good. You want that. Make sure that the new data is called "CS_LOAD.csv", with the same cases. IT WILL NOT WORK IF THIS STEP ISN'T CORRECT.
+
+2. Double click "convert.bat" and let the program run. It will open a screen with more information. After double clicking "convert.bat", there should be a file called "Updated_Job_List.csv", and the "updated.csv" file will be modified. "Updated_Job_List.csv" will be ready for import into Wildcat Career Network at the end of this step.
+
+==========================================
+
+ON MAC:
+1. Make sure this folder is on your Desktop
+
+2. Drag and drop excel data into this folder and rename it "CS_LOAD.csv". This should replace the current "CS_LOAD.csv" file, which is good. You want that. Make sure that the new data is called "CS_LOAD.csv", with the same cases. IT WILL NOT WORK IF THIS STEP ISN'T CORRECT.
+
+3. Open "terminal" and navigate to this folder
+	a. type "ls" to see what directory you are in. Usually it will open to your username
+		1. if you see 'Desktop' in the output of 'ls', this is good
+	b. type "cd Desktop"
+	c. type "cd On-Campus-Job-Converter"
+
+4. Delete "Updated_Job_List.csv" by typing "rm Updated_Job_List.csv"
+
+5. Run python script from terminal by typing "python3 csvConverter.py"
+
+6. Delete extra files by typing "rm new_CS_LOAD.csv", pressing enter, then typing "rm new_outdated.csv"
+
+7. Make new "outdated.csv" file by typing "cp Updated_Job_List.csv outdated.csv"
+
+8. "Updated_Job_List.csv" will be ready for import into Wildcat Career Network at the end of previous step.

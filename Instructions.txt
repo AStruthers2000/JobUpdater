@@ -14,7 +14,7 @@ ON MAC:
 	a. type "ls" to see what directory you are in. Usually it will open to your username
 		1. if you see 'Desktop' in the output of 'ls', this is good
 	b. type "cd Desktop"
-	c. type "cd On-Campus-Job-Converter"
+	c. type "cd JobUpdater"
 
 4. Delete "Updated_Job_List.csv" by typing "rm Updated_Job_List.csv"
 

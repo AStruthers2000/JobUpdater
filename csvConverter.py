@@ -14,15 +14,15 @@ def getListOfID(filename):
 
 def getExpiredID(old_list, new_list):
     expiredID = []
-    print(old_list)
-    print("*"*10)
-    print(new_list)
+    # print(old_list)
+    # print("*"*10)
+    # print(new_list)
     for ID in old_list:
         if ID not in new_list:
             print(str(ID) + " exists in old, but not in new")
             expiredID += [ID]
-    print("*"*10)
-    print(expiredID)
+    # print("*"*10)
+    print("Expired jobs: " + str(expiredID))
     return expiredID
 
 
@@ -31,7 +31,6 @@ def modRow(row):
 
     if "how to apply" in row[5].lower():
         row[5] = row[5].split("How To Apply")
-        #print(row[5])
         row[5] = row[5][0]
         if row[5] == " ":
             row[5] = "To view the details of this job posting, please see the original posting on the HR website at the link provided."
@@ -84,7 +83,7 @@ def deleteExpired(filename):
                 else:
                     deleted_count += 1
             except IndexError:
-                print(row[3])
+                continue
 
     print("Found: " + str(deleted_count) + " already expired jobs in " + filename)                
     oldgoodfile.close()
@@ -117,8 +116,7 @@ def makeExpired(oldID, newID):
             goodfile_writer.writerow(row)
         else:
             duplicate_count += 1
-            #print("Duplicate, wrote new")
-    print(duplicate_count)
+    print("Found " + str(duplicate_count) + " duplicate jobs (Exists in CS_LOAD and in outdated)")
             
     goodfile.close()
 
@@ -145,27 +143,6 @@ def writeCurrent():
     
 
 def main():
-    """old_id_list = getListOfID("outdated.csv")
-    new_id_list = getListOfID("CS_LOAD.csv")
-    expiredID = getExpiredID(old_id_list, new_id_list)
-    print("====="*5)
-    
-    firstRow = True
-    with open("CS_LOAD.csv", newline='', encoding='latin1') as infile: #opens file
-        with open("Converted_File.csv", 'w', newline='', encoding='latin1') as outfile: #creates output file
-            inReader = csv.reader(infile) #makes csvreader of file
-            outWriter = csv.writer(outfile) #makes writer of outfile
-            for row in inReader: #every single row in FakeData1.csv
-                if row[0] in expiredID:
-                    print(str(row[0]) + " is expired")
-                    
-                if firstRow:
-                    new_row = writeFirstRow(row)
-                    firstRow = False
-                else:
-                    new_row = modRow(row)
-                outWriter.writerow(new_row) #writing to outfile"""
-
     deleteExpired("CS_LOAD.csv")
     currentID = writeCurrent()
 
@@ -174,13 +151,6 @@ def main():
     expiredID = generateExpiredIDList()
 
     makeExpired(expiredID, currentID)
-
-
-    #oldgoodfile = open("new_outdated.csv", "r", encoding='latin1')
-    #oldgoodfile_reader = csv.reader(oldgoodfile)
-
-    #for row in oldgoodfile_reader:
-        
 
 
 if __name__ == "__main__":
